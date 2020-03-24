@@ -25,4 +25,21 @@ class PostController extends Controller
         $post->save();
         return redirect('/');
     }
+
+    public function edit($id = null){
+        $posts = Post::where('id', $id)->first();
+        $data['posts'] = $posts;
+        return view('blog.edit', $data);
+    }
+
+    public function update(Request $request, $id = null){
+        $posts = Post::where('id', $id)->first();
+        $posts->id = $request->id;
+        $posts->title = $request->title;
+        $posts->body = $request->body;
+        $posts->created_at = $request->created_at;
+        $posts->updated_at = $request->updated_at;
+        $posts->update();
+        return redirect('/');
+    }
 }

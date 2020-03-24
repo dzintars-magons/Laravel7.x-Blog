@@ -20,3 +20,7 @@ Auth::routes(['register' => false]);
 Route::view('/admin', 'blog.admin');
 
 Route::post('/save-post', 'PostController@save');
+
+Route::get('/edit-post/{id}', 'PostController@edit');
+
+Route::post('/update-post/{id}', 'PostController@update');
