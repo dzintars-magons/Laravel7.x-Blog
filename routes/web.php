@@ -19,7 +19,11 @@ Auth::routes(['register' => false]);
 
 Route::view('/admin', 'blog.admin');
 
+// CREATE
+
 Route::post('/save-post', 'PostController@save');
+
+// UPDATE, DELETE
 
 Route::get('/edit-post/{id}', 'PostController@edit');
 
