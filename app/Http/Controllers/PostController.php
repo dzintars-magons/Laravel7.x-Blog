@@ -42,4 +42,10 @@ class PostController extends Controller
         $posts->update();
         return redirect('/');
     }
+
+    public function delete($id = null){
+        $posts = Post::where('id', $id)->first();
+        $posts->delete();
+        return redirect('/');
+    }
 }
